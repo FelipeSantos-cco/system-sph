@@ -3,7 +3,7 @@ from bs4 import BeautifulSoup
 
 class Buscar():
 
-    def pesquisa_palavra():
+    def buscaGeral():
         url = 'https://guiadeti.com.br/'
 
         header = {
@@ -22,7 +22,7 @@ class Buscar():
             listaLinks = []
 
             for link in tabelaCursos.find_all('a'):
-                if link.get('href') not in listaLinks:
+                if link.get('href') not in listaLinks: # Não pegar links repetidos
                     listaLinks.append(link.get('href'))
 
             print(listaLinks)
