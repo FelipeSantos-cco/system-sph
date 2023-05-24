@@ -1,4 +1,4 @@
-from modules.guia_de_ti import Buscar
+from modules.guia_de_ti_testes import Buscar
 
 def banner():
     print(''' 
@@ -15,4 +15,7 @@ def banner():
 
 banner()
 
-Buscar.pesquisa_plataforma()
+# O intuito dessa função era ver a disponibilidade de Web Scraping em cima desse site.
+# Buscar.pesquisa_plataforma()
+## Esta função retornou 176 links de plataformas disponiveis para web scraping
+
