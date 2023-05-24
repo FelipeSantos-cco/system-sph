@@ -1,8 +1,3 @@
-import modules.buscadores
+from modules.guia_de_ti import Buscar
 
-lib = modules.buscadores
-
-if __name__ == '__main__':
-    
-    lib.pesquisaGoogle("teste")
-
+Buscar.pesquisa_palavra()
