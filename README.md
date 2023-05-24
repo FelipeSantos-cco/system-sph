@@ -1,2 +1,2 @@
-# bot-sph
-Desenvolvimento de um Bot no Discord de Web Scraping para a plataforma SPHackSchool.
+# System sph
+Desenvolvimento de um sistema de Web Scraping para a plataforma SPHackSchool.
