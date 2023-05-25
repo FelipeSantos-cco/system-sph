@@ -15,3 +15,11 @@ Intalando as dependencias
 ```bash
 pip install -r requirements.txt
 ```
+
+### Notes
+
+[x] Cursos no estilo noticia: [Guia de TI](https://guiadeti.com.br/)
+[ ] Pesquisa com palavra Específica
+  - Ainda na busca de uma plataforma. Talvez:
+    - [Coursera](https://www.coursera.org/)
+    - [Udemy](https://www.udemy.com/)
