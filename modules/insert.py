@@ -1,8 +1,8 @@
-import requests #, os
+import requests, random #, os
 import mysql.connector
 from bs4 import BeautifulSoup
 
-def database(nomePlat, descPlat, urlPlat, urlImg):
+def database(nomePlat, urlPlat, urlImg):
     meubd = mysql.connector.connect(
         host="localhost",
         user="aluno",
@@ -12,8 +12,8 @@ def database(nomePlat, descPlat, urlPlat, urlImg):
 
     mycursor = meubd.cursor()
 
-    sql = "INSERT INTO bdSPHack.tbPlataforma (nomePlataforma, descPlataforma, urlPlataforma, urlImgPlataforma) VALUES(%s, %s, %s, %s);"
-    val = (nomePlat, descPlat, urlPlat, urlImg)
+    sql = "INSERT INTO bdSPHack.tbPlataforma (nomePlataforma, urlPlataforma, urlImgPlataforma) VALUES(%s, %s, %s);"
+    val = (nomePlat, urlPlat, urlImg)
 
     mycursor.execute(sql, val)
     meubd.commit()
@@ -34,17 +34,15 @@ def buscaLink():
 
             titulo = site.find('h1', attrs={'class': 'entry-title'}).contents[0]
 
-            descricao = site.find('div', attrs={'class': 'fusion-text fusion-text-1 fusion-text-no-margin'}).get_text()
-
             urlImg = site.find('img', attrs={'decoding': 'async'}).get('data-src')
             urlImg = 'https://guiadeti.com.br'+urlImg
 
             urlPlataforma = site.find('div', attrs={'class': 'project-info'}).find('a', attrs={'target' : '_blank'}).get('href')
 
             # print(f'{titulo}\n{descricao}\n{urlPlataforma}\n{urlImg}')
-            database(titulo, descricao, urlPlataforma, urlImg)
+            database(titulo, urlPlataforma, urlImg)
 
-# Teste
+# Teste ----------------------------------------------
 def criaBanco():
     conexao = mysql.connector.connect(
         host="localhost",
@@ -112,5 +110,7 @@ def criaBanco():
     
     conexao.commit()
 
-def insertCurso():
-    print("Xamblada")
+def insertFavorito():
+    values = [(x, 1) for x in range(11, 16)] + [(x, 1) for x in range(17, 61)]
+    output = "\n, ".join(str(pair) for pair in values)
+    print(output)
